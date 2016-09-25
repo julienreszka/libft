@@ -17,8 +17,8 @@ ok		auteur
 			memchr
 			memcmp
 ok			strlen
-			strdup
-			strcpy
+ok			strdup
+ok			strcpy
 			strncpy
 			strcat
 			strncat
