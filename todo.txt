@@ -53,7 +53,7 @@ ok		auteur
 			strtrim
 			strsplit
 			itoa
-			putchar
+ok			putchar
 			putstr
 			putendl
 			putnbr
