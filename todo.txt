@@ -16,7 +16,7 @@ ok		auteur
 			memmove
 			memchr
 			memcmp
-			strlen
+ok			strlen
 			strdup
 			strcpy
 			strncpy
@@ -54,7 +54,7 @@ ok		auteur
 			strsplit
 			itoa
 ok			putchar
-			putstr
+ok			putstr
 			putendl
 			putnbr
 			putchar_fd
