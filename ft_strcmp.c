@@ -1,23 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jreszka <jreszka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/05 16:37:37 by jreszka           #+#    #+#             */
-/*   Updated: 2016/11/08 11:41:11 by jreszka          ###   ########.fr       */
+/*   Created: 2016/11/07 15:30:48 by jreszka           #+#    #+#             */
+/*   Updated: 2016/11/11 14:13:21 by jreszka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+**	Compare deux chaines renvoie la difference
+*/
+
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+int		ft_strcmp(const char *s1, const char *s2)
 {
-	size_t len;
+	int i;
 
-	len = 0;
-	while (s[len])
-		len++;
-	return (len);
+	i = 0;
+	while (s1[i] || s2[i])
+	{
+		if (s1[i] != s2[i])
+			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+		i++;
+	}
+	return (0);
 }

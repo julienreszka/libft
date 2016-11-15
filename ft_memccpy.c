@@ -1,30 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jreszka <jreszka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/04 19:12:32 by jreszka           #+#    #+#             */
-/*   Updated: 2016/11/11 11:54:21 by jreszka          ###   ########.fr       */
+/*   Created: 2016/11/07 18:57:01 by jreszka           #+#    #+#             */
+/*   Updated: 2016/11/11 12:13:41 by jreszka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-**	Ecrit un caractere c len fois sur le sur la chaine *b
+**	Copie tous les caracteres de src vers dst jusqu'a ce que c est rencontre
+**	Renvoie l'adresse memoire apres le caractere c rencontre dans dst
+**	Sinon renvoie NULL
 */
 
 #include "libft.h"
 
-void	*ft_memset(void *b, int c, size_t len)
+void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 {
-	unsigned char *s;
+	char	*ptr;
+	size_t	i;
 
-	s = b;
-	while (len > 0)
+	i = -1;
+	ptr = dst;
+	while (++i < n)
 	{
-		*s++ = (unsigned char)c;
-		len--;
+		*(ptr + i) = *((unsigned char *)src + i);
+		if (*((unsigned char *)src + i) == (unsigned char)c)
+			return (dst + i + 1);
 	}
-	return (b);
+	return (NULL);
 }

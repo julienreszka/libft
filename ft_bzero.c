@@ -1,23 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jreszka <jreszka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/05 16:37:37 by jreszka           #+#    #+#             */
-/*   Updated: 2016/11/08 11:41:11 by jreszka          ###   ########.fr       */
+/*   Created: 2016/11/05 11:14:52 by jreszka           #+#    #+#             */
+/*   Updated: 2016/11/11 11:54:33 by jreszka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+**	Ecrit n 0 sur la chaine s sauf si n est 0 sans ce cas elle ne fait rien
+*/
+
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+void	ft_bzero(void *s, size_t n)
 {
-	size_t len;
+	unsigned char *tmp;
 
-	len = 0;
-	while (s[len])
-		len++;
-	return (len);
+	tmp = s;
+	while (n > 0)
+	{
+		*tmp++ = '\0';
+		n--;
+	}
 }

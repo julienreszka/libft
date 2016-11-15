@@ -1,23 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jreszka <jreszka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/05 16:37:37 by jreszka           #+#    #+#             */
-/*   Updated: 2016/11/08 11:41:11 by jreszka          ###   ########.fr       */
+/*   Created: 2016/11/07 15:22:09 by jreszka           #+#    #+#             */
+/*   Updated: 2016/11/11 14:10:19 by jreszka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+**	Trouve la premiere occurence de c dans la chaine s
+**	Renvoie un pointeur vers la position
+**	Renvoie NULL is ne trouve pas dans les n bytes
+*/
+
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	size_t len;
+	unsigned int i;
 
-	len = 0;
-	while (s[len])
-		len++;
-	return (len);
+	i = 0;
+	while (i < n)
+	{
+		if (((const unsigned char *)s)[i] == (unsigned char)c)
+			return ((void *)s + i);
+		i++;
+	}
+	return (NULL);
 }

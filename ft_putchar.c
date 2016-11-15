@@ -5,19 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jreszka <jreszka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/09/25 14:05:58 by jreszka           #+#    #+#             */
-/*   Updated: 2016/09/25 14:30:02 by jreszka          ###   ########.fr       */
+/*   Created: 2016/11/07 15:02:07 by jreszka           #+#    #+#             */
+/*   Updated: 2016/11/08 11:40:07 by jreszka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-/*
-**	Affiche le caractère c sur la sortie standard.
-*/
+#include "libft.h"
 
 void	ft_putchar(char c)
 {
-	if (c != '\0')
-		write(1, &c, 1);
+	write(1, &c, 1);
 }

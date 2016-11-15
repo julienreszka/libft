@@ -1,23 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jreszka <jreszka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/05 16:37:37 by jreszka           #+#    #+#             */
-/*   Updated: 2016/11/08 11:41:11 by jreszka          ###   ########.fr       */
+/*   Created: 2016/11/07 13:46:25 by jreszka           #+#    #+#             */
+/*   Updated: 2016/11/09 16:18:27 by jreszka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+**	Localiser la premiere occurence
+**	d'un caractere dans une chaine
+**	'\0' fait partie des caracteres localisables
+*/
+
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+char	*ft_strchr(const char *s, int c)
 {
-	size_t len;
+	int		i;
 
-	len = 0;
-	while (s[len])
-		len++;
-	return (len);
+	i = -1;
+	while (++i < (int)ft_strlen(s) + 1)
+		if (*(s + i) == (char)c)
+			return ((char *)s + i);
+	return (NULL);
 }

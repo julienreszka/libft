@@ -1,23 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jreszka <jreszka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/05 16:37:37 by jreszka           #+#    #+#             */
-/*   Updated: 2016/11/08 11:41:11 by jreszka          ###   ########.fr       */
+/*   Created: 2016/11/07 15:24:02 by jreszka           #+#    #+#             */
+/*   Updated: 2016/11/11 14:03:52 by jreszka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+**	Compare les bytes de s1 avec s2
+*/
+
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	size_t len;
+	unsigned int			i;
+	unsigned const char		*ps1;
+	unsigned const char		*ps2;
 
-	len = 0;
-	while (s[len])
-		len++;
-	return (len);
+	ps1 = s1;
+	ps2 = s2;
+	i = 0;
+	while (i < n && (ps1 || ps2))
+	{
+		if (ps1[i] != ps2[i])
+			return ((int)(ps1[i] - ps2[i]));
+		i++;
+	}
+	return (0);
 }

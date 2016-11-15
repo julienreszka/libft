@@ -1,23 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jreszka <jreszka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/05 16:37:37 by jreszka           #+#    #+#             */
-/*   Updated: 2016/11/08 11:41:11 by jreszka          ###   ########.fr       */
+/*   Created: 2016/11/07 14:05:59 by jreszka           #+#    #+#             */
+/*   Updated: 2016/11/09 16:31:15 by jreszka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+**	Trouver une chaine dans une chaine
+**	La premiere occurence
+*/
+
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+char	*ft_strstr(const char *big, const char *little)
 {
-	size_t len;
+	int i;
+	int j;
 
-	len = 0;
-	while (s[len])
-		len++;
-	return (len);
+	i = 0;
+	if (little[0] == '\0')
+		return ((char *)big);
+	while (big[i])
+	{
+		j = 0;
+		if (big[i + j] == little[j])
+		{
+			while (big[i + j] == little[j] && big[i + j] && little[j])
+				j++;
+			if (little[j] == '\0')
+				return ((char *)big + i);
+		}
+		i++;
+	}
+	return (NULL);
 }
